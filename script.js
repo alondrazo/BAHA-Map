@@ -7,6 +7,13 @@ const map = new mapboxgl.Map({
   projection: 'mercator'
     });
 
+// Add a scale control to the map
+const scale = new mapboxgl.ScaleControl({
+  maxWidth: 150,      // width of the scale bar in pixels
+  unit: 'imperial'      // options: 'imperial', 'metric', or 'nautical'
+});
+map.addControl(scale, 'bottom-left'); // position options: 'top-left', 'top-right', 'bottom-left', 'bottom-right'
+
 map.on('load', function() {
   map.addSource('points-data',{
     type:'geojson',
